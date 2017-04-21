@@ -1,0 +1,34 @@
+#ASMF Parameters
+#Fri Apr 21 10:33:42 CST 2017
+UserSimRatio=0.2
+LambdaItem=0.01
+OutputPath=D\:\\workspaces\\eclipse\\javaee\\LocRec\\output\\ASMF\\10
+UserNum=2551
+FeatureNum=10
+Delta=10.0
+DFriend=D\:\\workspaces\\eclipse\\javaee\\LocRec\\data\\extra_info_eg\\User_Social_Friendshs
+LocLatLng=D\:\\workspaces\\eclipse\\javaee\\LocRec\\data\\extra_info_eg\\Location_LatLng
+LambdaCat=500.0
+LambdaUser=0.01
+TestFile=D\:\\workspaces\\eclipse\\javaee\\LocRec\\data\\Rating_Test
+RatingRecordNum=1348407
+HomeLatLng=D\:\\workspaces\\eclipse\\javaee\\LocRec\\data\\extra_info_eg\\User_Home
+CatNum=10
+MaxIterationNum=250
+PotRating=0.1
+CatOffset=0.1
+AugRating=D\:\\workspaces\\eclipse\\javaee\\LocRec\\output\\ASMF\\10\\Augmented_Train_Rating
+ConvergeThreshold=5.0E-5
+Alpha=1.0
+NFriend=D\:\\workspaces\\eclipse\\javaee\\LocRec\\data\\extra_info_eg\\User_Neighbor_Friends
+Epsilon=1.0E10
+MINUS_MEAN_RATING=false
+MeanTrainRating=0.0
+ItemNum=13474
+LFreind=D\:\\workspaces\\eclipse\\javaee\\LocRec\\data\\extra_info_eg\\User_Location_Friends
+MethodName=ASMF
+CATEGORY_RECORD_NUM=20668
+TrainFile=D\:\\workspaces\\eclipse\\javaee\\LocRec\\data\\Rating_Train
+WM=SQRT
+LocCat=D\:\\workspaces\\eclipse\\javaee\\LocRec\\data\\extra_info_eg\\Location_Category
+AugRatingTopNum=1000

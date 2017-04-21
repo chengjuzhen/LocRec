@@ -1,0 +1,46 @@
+Version: 1.0
+
+This code is partially, recently cleaned. There are some unused methods because
+they are used in some other classes which are not open. Please email to the
+author if there is anything wrong.
+
+Settings can be found in 'Config' file. There are some built-in parameters in
+the programs.
+
+The path 'data' provides some data exmaples.
+
+Note that:
+1. User ids and item ids in data must be encoded into continous integers
+   and indexed from zero.
+
+3. For ranking based model, 'ConvergeThreshold' should be set to be a very
+   small value, such as 5e-15, in case of early-stop.
+
+4. In ASMF and ARMF models, current version only supports Linear Aggregation
+   algorithm to find potential check-ins from friends. If option '-AugRating'
+   is specified, this specified file will be loaded for the potential
+   check-ins, and it should include both potential check-ins and training
+   check-ins together.
+
+
+-------------------------------------------------------------------------------
+References
+-------------------------------------------------------------------------------
+
+-- RRFM --
+@inproceedings{Huayu:2016:IJCAI,
+  author    = {Huayu Li and Richang Hong and Defu Lian and Zhiang Wu and Meng Wang and Yong Ge},
+  title     = {A Relaxed Ranking-Based Factor Model for Recommender System from Implicit Feedback},
+  booktitle = {Proceedings of the Twenty-Fifth International Joint Conference on Artificial Intelligence, {IJCAI}},
+  pages     = {1683--1689},
+  year      = {2016},
+}
+
+-- ASMF, ARMF --
+@inproceedings{Huayu:2016:KDD,
+ author    = {Huayu Li and Yong Ge and Richang Hong and Hengshu Zhu},
+ title     = {Point-of-Interest Recommendations: Learning Potential Check-ins from Friends},
+ booktitle = {Proceedings of the 22Nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
+ pages     = {975--984},
+ year      = {2016},
+} 

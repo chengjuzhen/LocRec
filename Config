@@ -1,0 +1,76 @@
+#[Environment Setting]
+OutputPath=output/
+
+TrainFile=data/Rating_Train
+TestFile=data/Rating_Test
+
+
+#[Model Setting]
+## Ranking : RRFM
+## Checkin : ASMF, ARMF
+Model=ASMF
+
+ConvergeThreshold=5.0E-5
+MaxIterationNum=250
+LearningRate=1e-3
+MaxLearningRate=3e-3
+MinLearningRate=1e-3
+
+FeatureNum=10
+
+UserNum=2551
+ItemNum=13474
+
+#[Hyperparameters]
+Lambda=1
+LambdaUser=0.01
+LambdaItem=0.01
+
+#UserFeatureInitFile=
+#ItemFeatureInitFile=
+
+#[Eval Setting]
+ThreadNum=4
+Ks=5,8,10,12,15,20
+
+#[Model-specific Setting]
+## RRFM options:
+##     -EnhGroupNum <int> {-ItemGroupFile <path> or -GroupNum <int>} [-ItemGroupFile <file>]
+## Set ConvergeThreshold=5.0E-15 or smaller value to avoid early-stop
+RRFM=-GroupNum 100 -EnhGroupNum 100
+
+## ASMF Options:
+## -CatNum <int> -LocCat <file> -AugRating <file>
+## [Optional]
+##     -PotRating <float>
+##     -LambdaCat <float>
+##     -CatOffset <float>
+##     -AugRatingTopNum <int>
+##     -UserSimRatio <float>
+##     -HomeLatLng <file>
+##     -LocLatLng <file> 
+##     -DFriend <file>
+##     -LFreind <file>
+##     -NFriend <file>
+## 
+## for weight schema:
+##     -WM <int> (0: MULT, 1: SQRT, 2: LOG)
+##         where MULT: Alpha * rating + 1,
+##               SQRT: Math.sqrt(1 + Delta * rating) + 1,
+##               LOG : Alpha * log(1 + rating * epsilon) + 1.
+##     -Alpha <float>
+##     -Epsilon <double>
+##     -Delta <float>
+##
+## The following is for evalulation
+##    -HomeLatLng <file> -LocLatLng <file> -LocLatLng <file> 
+##    [Optional]
+##        -GeoM <0:Add (default), 1:Mult> If Add is selected, -GeoFactor <float>
+##        for new location: -NewLocN <file> -TotLocNum <int>
+ASMF=-CatNum 10 -LocCat data/extra_info_eg/Location_Category -HomeLatLng data/extra_info_eg/User_Home -LocLatLng data/extra_info_eg/Location_LatLng -DFriend data/extra_info_eg/User_Social_Friendshs -LFreind data/extra_info_eg/User_Location_Friends -NFriend data/extra_info_eg/User_Neighbor_Friends -UserSimRatio 0.2 -AugRatingTopNum 1000 -PotRating 0.1 -CatOffset 0.1 -WM 1 -Delta 10 -GeoM 0 -GeoFactor 0.003
+
+
+## Options are almost as the same as ASMF, except that
+## there is no option -PotRating and no weight schema
+## Use ARMF, set ConvergeThreshold=5.0E-15 or smaller value to avoid early-stop
+ARMF=-CatNum 10 -LocCat data/extra_info_eg/Location_Category -HomeLatLng data/extra_info_eg/User_Home -LocLatLng data/extra_info_eg/Location_LatLng -DFriend data/extra_info_eg/User_Social_Friendshs -LFreind data/extra_info_eg/User_Location_Friends -NFriend data/extra_info_eg/User_Neighbor_Friends -UserSimRatio 0.2 -AugRatingTopNum 1000 -CatOffset 0.1 -GeoM 0 -GeoFactor 0.0003
